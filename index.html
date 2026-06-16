@@ -389,24 +389,7 @@
             }
         }
 
-        // --- OBSŁUGA TAJNEGO PANELU ADMINA (3 kliknięcia w lewy górny róg lub klawisz 'H') ---
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'h' || e.key === 'H') toggleAdminMenu();
-        });
-
-        let clickCount = 0;
-        let clickTimer;
-        const handleSecretActivation = (e) => {
-            e.preventDefault();
-            clickCount++;
-            clearTimeout(clickTimer);
-            if (clickCount === 3) {
-                toggleAdminMenu();
-                clickCount = 0;
-            } else {
-                clickTimer = setTimeout(() => { clickCount = 0; }, 400);
-            }
-        };
+        // --- OBSŁUGA TAJNEGO PANELU ADMINA (3 kliknięcia w lewy górny róg lub klawisz 'H') ---
 
         secretZone.addEventListener('click', handleSecretActivation);
         secretZone.addEventListener('touchstart', handleSecretActivation, {passive: false});
